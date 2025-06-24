@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 
@@ -11,7 +10,8 @@ st.write(
   """
 )
 
-
+cnx=st.connection("Snowflake")
+session=cnx.session()
 name_on_order = st.text_input("Name on Smoothie")
 st.write("Name on your smoothie will be:", name_on_order)
 
